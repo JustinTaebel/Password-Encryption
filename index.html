@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption App</title>
+    <link rel="icon" href="./public/lock.png">
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="hero">
+        <h1>Password Checker <span>and </span>Encryption</h1>
+    </div>
+    <div class="container">
+        <div class="pass-box">
+            <h2>Password <span>Checker</span></h2>
+            <div class="input-box">
+                <input type="password" placeholder="Password" id="password">
+                <div class="show"></div>
+                <div class="meter"></div>
+            </div>
+            <div id="level"></div>
+            <div id="message"></div>
+            <button class="btn" id="encrypt" onclick="encrypt()">Encrypt</button>
+        </div>
+        <div class="encrypt-box">
+            <h2>En<span>cryption</span></h2>
+            <div class="enc-passwords">
+                <p id="enc-pass"></p>
+            </div>
+            <button class="btn" id="decrypt" onclick="decrypt()">Decrypt</button>
+        </div>
+    </div>
+    
+</body>
+</html>

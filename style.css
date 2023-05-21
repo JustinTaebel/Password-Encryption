@@ -1,0 +1,217 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: poppins, sans-serif;
+    box-sizing: border-box;
+    
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background-image: url(public/background.svg);
+    aspect-ratio: 960/540;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+
+.hero {
+    position: absolute;
+    margin: 1rem;
+}
+
+h1{
+    color: #ddd;
+    margin: 0;
+}
+
+.pass-box {
+    position: relative;
+    margin: 1rem;
+    padding: 1rem;
+    padding-bottom: 3rem;
+    height: auto;
+    width: 20rem;
+    background-color: #333;
+    border: 2px solid #001122;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+h2{
+    margin: 1rem;
+    color: #ddd;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+span{
+    color: #0067cd;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+#password{
+    position: relative;
+    background: #222;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 75%;
+    color: #ddd;
+    font-size: 1rem;
+}
+
+.pass-box .meter{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #1b1b1b;
+}
+
+.pass-box .meter::before{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 100%;
+    transition: 0.5s;
+    background: red;
+}
+
+.pass-box #level{
+    margin-bottom: 2rem;
+}
+
+.pass-box #level::before{
+    position: absolute;
+    content: '';
+    color: red;
+    font-weight: bold;
+    font-size: 80%;
+    letter-spacing: 0.05em;
+}
+
+.pass-box #message::before{
+    position: absolute;
+    content: '';
+    color: white;
+    font-size: 80%;
+    letter-spacing: 0.05em;
+}
+
+.pass-box.space #message::before{
+    content: 'Spaces are not allowed'
+}
+
+.pass-box.format #message::before{
+    letter-spacing: 0em;
+    content: 'Needs 6 Characters, 1 Capital, 1 Symbol, and no spaces'
+}
+
+.pass-box.weak .meter::before{
+    width: 10%;
+    background: red;
+}
+
+.pass-box.weak #level::before{
+    content: 'Password is Weak';
+    color: red;
+}
+
+.pass-box.medium .meter::before{
+    width: 60%;
+    background: yellow;
+}
+
+.pass-box.medium #level::before{
+    content: 'Password is Good';
+    color: yellow;
+}
+
+.pass-box.strong .meter::before{
+    width: 100%;
+    background: green;
+}
+
+.pass-box.strong #level::before{
+    content: 'Password is Strong';
+    color: rgb(0, 150, 0);
+}
+
+.btn {
+    background-color: #007fff;
+    color: #ddd;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+}
+
+
+.pass-box #encrypt{
+    display: none;
+}
+
+.pass-box.enc-btn #encrypt{
+    display: block;
+}
+
+.encrypt-box #decrypt{
+    display: none;
+}
+
+.encrypt-box.dec-btn #decrypt{
+    display: block;
+}
+
+.show{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 95%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.show::before{
+    content: 'SHOW';
+    color: #666;
+    font-size: 0.8rem;
+    letter-spacing: .05em;
+}
+.show.hide::before{
+    content: 'HIDE';
+    letter-spacing: .15em;
+}
+
+.encrypt-box{
+    padding: 1rem;
+    height: auto;
+    width: 20rem;
+    background-color: #111;
+    border: 2px solid #003789;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
