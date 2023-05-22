@@ -43,7 +43,7 @@ i {
     height: 95.3%;
     width: 50%;
     color: #ddd;
-    background-color: #00264b;
+    background-color: #111;
     border-right: 5px solid #0067cd;
     position: absolute;
     transform: translateX(-100%) scale(.1);
@@ -56,6 +56,7 @@ i {
     margin-bottom: 1rem;
     text-align: left;
     letter-spacing: 0;
+    color: #007fff;
 }
 
 .popup h3{
@@ -68,7 +69,8 @@ i {
     margin: 0;
     margin-bottom: 1rem;
     text-align: left;
-    background-color: #00264b;
+    font-size: 90%;
+    background-color: #111;
 }
 
 .open-popup {
@@ -90,7 +92,7 @@ h1{
     width: 20rem;
     background-color: #333;
     border: 2px solid #001122;
-    
+    box-shadow: 5px 5px black;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -260,10 +262,17 @@ span{
     width: 20rem;
     background-color: #111;
     border: 2px solid #003789;
+    box-shadow: 5px 5px #003789;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+
+#enc-pass {
+    color: #ddd;
+    font-weight: bold;
+    font-size: 125%;
 }
 
 @media (max-width: 740px) {

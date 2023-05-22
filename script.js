@@ -156,7 +156,7 @@ const box = document.querySelector('.encrypt-box')
 function encrypt() {
     let encryptedText = "";
     const password = document.querySelector('#password').value
-    shift = Math.floor(Math.random() * 9)
+    shift = Math.floor(Math.random() * 8) + 1 
     encryptedText += shift
     console.log(encryptedText)
 
@@ -173,11 +173,18 @@ function encrypt() {
           let code = ((char.charCodeAt(0) - 97 + shift) % 26) + 97
           encryptedText += String.fromCharCode(code)
         }
+        // Encrypt lowercase letters
+        else if (char.match(/[0-9]/)) {
+            let code = ((char.charCodeAt(0) - 48 + shift) % 10) + 48;
+            encryptedText += String.fromCharCode(code);
+        }
         // Preserve other characters
         else {
-          encryptedText += char
+            let code = ((char.charCodeAt(0) - 32 + shift) % 15) + 32;
+            encryptedText += String.fromCharCode(code);
         }
       }
+    
     
     document.getElementById('enc-pass').innerHTML= encryptedText
     box.classList.add('dec-btn')
@@ -188,6 +195,7 @@ function decrypt() {
     let decryptedText = ""
     let shift = password[0]
     
+
     for (let i = 1; i < password.length; i++) {
         let char = password[i]
     
@@ -201,12 +209,19 @@ function decrypt() {
           let code = ((char.charCodeAt(0) - 97 - shift + 26) % 26) + 97
           decryptedText += String.fromCharCode(code)
         }
-        // Preserve other characters
+        // Decrypt numbers
+        else if (char.match(/[0-9]/)) {
+            let code = ((char.charCodeAt(0) - 48 - shift + 10) % 10) + 48;
+            decryptedText += String.fromCharCode(code);
+        }
+            // Decrypt symbols differently
         else {
-          decryptedText += char
+            let code = ((char.charCodeAt(0) - 32 - shift + 15) % 15) + 32;
+            decryptedText += String.fromCharCode(code);
         }
       }
 
+    
     box.classList.remove('dec-btn')
     document.getElementById('enc-pass').innerHTML= decryptedText
 }
