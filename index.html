@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encryption App</title>
-    <link rel="icon" href="./public/lock.png">
+    <title>Password Checker and Encryption</title>
+    <link rel="icon" href="./public/icon.png">
 
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+    <div class="popup" id="popup">
+        <h2>Info</h2>
+        <h3>How passwords work</h3>
+        <p>Passwords are used for authentication and access control in digital systems. When creating a password, users choose a unique combination of characters. To secure passwords, they are transformed using a one-way hashing function, often with the addition of a unique salt. The resulting hash is stored, not the actual password. During authentication, the provided password is hashed and compared to the stored hash. If they match, access is granted. Password security can be improved through complexity requirements, length, regular changes, and multi-factor authentication. It's important to use strong, unique passwords, avoid reusing them, and be cautious of phishing attempts to enhance security.</p>
+        <h3>How encryption works</h3>
+        <p>Encryption is a process that converts readable data into unreadable form to protect sensitive information. It involves applying an encryption algorithm and a key to the plaintext, resulting in ciphertext. The encryption key is necessary to reverse the process and retrieve the original data, known as decryption. </p>
+        <h2>How to Use</h2>
+        <h3>Password Checker</h3>
+        <p>Enter in a password that is at least 6 characters long, contains one capital letter, and one symbol. Strength of password is determined based off of a point system that gives points for length, number of Capitals, numbers, and symbols. Once you put in a strong password, you have the option to encrypt.</p>
+        <h3>Encryption</h3>
+        <p>The submitted password is encrypted by going through a hash function and displays the encrypted string. You can then decrypt it and it will replace the encrypted string with the original plain text string. If you encrypt the same password again, a different encrypted string will display, but the same password will be decrypted.</p>
+        <button class="btn" onclick="closePopup()">OK</button>
+    </div>
     <div class="hero">
         <h1>Password Checker <span>and </span>Encryption</h1>
+        <i class="fa fa-info-circle" onclick="openPopup()"></i>
     </div>
     <div class="container">
         <div class="pass-box">

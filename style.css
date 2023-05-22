@@ -3,14 +3,13 @@ body{
     padding: 0;
     font-family: poppins, sans-serif;
     box-sizing: border-box;
-    
+    background-color: #001122;
 }
 
 .container{
     height: 100vh;
     width: 100%;
     background-image: url(public/background.svg);
-    aspect-ratio: 960/540;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -25,6 +24,56 @@ body{
 .hero {
     position: absolute;
     margin: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+i {
+    font-size: large;
+    color: #0067cd;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.popup {
+    z-index: 1;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    height: 95.3%;
+    width: 50%;
+    color: #ddd;
+    background-color: #00264b;
+    border-right: 5px solid #0067cd;
+    position: absolute;
+    transform: translateX(-100%) scale(.1);
+    visibility: hidden;
+    transition: all 0.4s;
+}
+
+.popup h2 {
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: left;
+    letter-spacing: 0;
+}
+
+.popup h3{
+    margin: 0;
+    margin-bottom: 0.25rem;
+    text-align: left;
+}
+
+.popup p{
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: left;
+    background-color: #00264b;
+}
+
+.open-popup {
+    visibility: visible;
+    transform: translateX(0) scale(1);
 }
 
 h1{
@@ -41,6 +90,7 @@ h1{
     width: 20rem;
     background-color: #333;
     border: 2px solid #001122;
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -214,4 +264,19 @@ span{
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+
+@media (max-width: 740px) {
+    .container{
+        gap: 0px;
+    }
+
+    .pass-box {
+        margin-top: 5rem;
+    }
+
+    .popup {
+        width: 75%;
+    }
+    
 }

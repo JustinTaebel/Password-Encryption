@@ -1,5 +1,6 @@
 const pswrd = document.querySelector('#password')
 const show = document.querySelector('.show')
+const pop = document.querySelector('#popup')
 
 show.onclick = function() {
     if (pswrd.type === 'password') {
@@ -10,6 +11,14 @@ show.onclick = function() {
         pswrd.setAttribute('type', 'password')
         show.classList.remove('hide')
     }
+}
+
+function openPopup() {
+    pop.classList.add("open-popup")
+}
+
+function closePopup() {
+    pop.classList.remove("open-popup")
 }
 
 function length(password) {
@@ -122,12 +131,12 @@ document.addEventListener("keyup", function(e) {
     //password is 6 or more characters and can start checking for more
     else {
         
-        if (level <= 4) {
+        if (level <= 5) {
             container.classList.add('weak')
             container.classList.remove('medium')
             container.classList.remove('strong')
         }
-        if (level > 4 && level < 10) {
+        if (level > 5 && level < 10) {
             container.classList.remove('weak')
             container.classList.add('medium')
             container.classList.remove('strong')
@@ -145,21 +154,59 @@ document.addEventListener("keyup", function(e) {
 
 const box = document.querySelector('.encrypt-box')
 function encrypt() {
+    let encryptedText = "";
     const password = document.querySelector('#password').value
+    shift = Math.floor(Math.random() * 9)
+    encryptedText += shift
+    console.log(encryptedText)
 
-    hash = 0
-    for (i = 0; i < password.length; i++) {
-        char = password.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash;
-    }
-    document.getElementById('enc-pass').innerHTML= hash
+    for (let i = 0; i < password.length; i++) {
+        let char = password[i]
+    
+        // Encrypt uppercase letters
+        if (char.match(/[A-Z]/)) {
+          let code = ((char.charCodeAt(0) - 65 + shift) % 26) + 65
+          encryptedText += String.fromCharCode(code)
+        }
+        // Encrypt lowercase letters
+        else if (char.match(/[a-z]/)) {
+          let code = ((char.charCodeAt(0) - 97 + shift) % 26) + 97
+          encryptedText += String.fromCharCode(code)
+        }
+        // Preserve other characters
+        else {
+          encryptedText += char
+        }
+      }
+    
+    document.getElementById('enc-pass').innerHTML= encryptedText
     box.classList.add('dec-btn')
 }
 
 function decrypt() {
     const password = document.getElementById('enc-pass').innerHTML
-    document.getElementById('enc-pass').innerHTML= password
+    let decryptedText = ""
+    let shift = password[0]
+    
+    for (let i = 1; i < password.length; i++) {
+        let char = password[i]
+    
+        // Decrypt uppercase letters
+        if (char.match(/[A-Z]/)) {
+          let code = ((char.charCodeAt(0) - 65 - shift + 26) % 26) + 65
+          decryptedText += String.fromCharCode(code)
+        }
+        // Decrypt lowercase letters
+        else if (char.match(/[a-z]/)) {
+          let code = ((char.charCodeAt(0) - 97 - shift + 26) % 26) + 97
+          decryptedText += String.fromCharCode(code)
+        }
+        // Preserve other characters
+        else {
+          decryptedText += char
+        }
+      }
+
     box.classList.remove('dec-btn')
-    document.getElementById('enc-pass').innerHTML= "DECRYPTED"
+    document.getElementById('enc-pass').innerHTML= decryptedText
 }
