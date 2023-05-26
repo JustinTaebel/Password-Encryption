@@ -1,5 +1,5 @@
 <h1>Password Checker and Encryption</h1>
-
+https://justintaebel.github.io/Password-Encryption/<br><br>
 <h2>Password Checker</h2><br>
 Enter in a password that is at least 6 characters long, contains one capital letter, and one symbol. Strength of password is determined based off of a point system that gives points for length, number of Capitals, numbers, and symbols. Once you put in a strong password, you have the option to encrypt.
 
